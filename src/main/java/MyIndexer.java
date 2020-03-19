@@ -144,10 +144,6 @@ public class MyIndexer extends Configured implements Tool {
 
         myconf.set("textinputformat.record.delimiter", "\n[[");
         myconf.set("mapred.textoutputformat.separator", "\t");
-        myconf.set("mapreduce.map.memory.mb", "1023");
-        myconf.set("mapreduce.reduce.memory.mb", "1023");
-        myconf.set("mapreduce.map.java.opts", "819");
-        myconf.set("mapreduce.reduce.java.opts", "819");
 
         File file = new File("stopword-list.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
