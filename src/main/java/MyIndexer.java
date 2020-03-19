@@ -139,11 +139,15 @@ public class MyIndexer extends Configured implements Tool {
         // mode. In this mode, mappers/reducers are spawned as thread on the
         // local machine, and all URLs are mapped to files in the local disk.
         // Remove these lines when executing your code against the cluster.
-        myconf.set("mapreduce.framework.name", "local");
-        myconf.set("fs.defaultFS", "file:///");
+    //    myconf.set("mapreduce.framework.name", "local");
+    //    myconf.set("fs.defaultFS", "file:///");
 
         myconf.set("textinputformat.record.delimiter", "\n[[");
         myconf.set("mapred.textoutputformat.separator", "\t");
+        myconf.set("mapreduce.map.memory.mb", "4096");
+        myconf.set("mapreduce.reduce.memory.mb", "4096");
+        mapreduce.map.java.opts("mapreduce.map.java.opts", "3276");
+        mapreduce.map.java.opts("mapreduce.reduce.java.opts", "3276");
 
         File file = new File("stopword-list.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
